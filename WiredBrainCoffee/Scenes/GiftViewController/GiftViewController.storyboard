@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kA7-Og-3QT">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -15,24 +15,24 @@
             <objects>
                 <viewController id="9Vl-kd-7os" customClass="GiftViewController" customModule="WiredBrainCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XzK-ae-g2g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZg-p7-rnO">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="16" y="108" width="382" height="358.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gd8-zH-ju4">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gd8-zH-ju4">
+                                    <size key="itemSize" width="161" height="167"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiftCardCell" id="1Qg-Cb-nZy">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="161" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aNn-Fn-xgL">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Vq-he-Lvn">
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="167"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -42,10 +42,10 @@
                         <viewLayoutGuide key="safeArea" id="2nf-6T-9QI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2nf-6T-9QI" firstAttribute="bottom" secondItem="vZg-p7-rnO" secondAttribute="bottom" id="LvT-Gj-pVv"/>
-                            <constraint firstItem="vZg-p7-rnO" firstAttribute="leading" secondItem="2nf-6T-9QI" secondAttribute="leading" id="Ul4-I1-uPc"/>
-                            <constraint firstItem="vZg-p7-rnO" firstAttribute="top" secondItem="2nf-6T-9QI" secondAttribute="top" id="epk-4Y-3HC"/>
-                            <constraint firstItem="2nf-6T-9QI" firstAttribute="trailing" secondItem="vZg-p7-rnO" secondAttribute="trailing" id="lSC-BT-BlG"/>
+                            <constraint firstItem="vZg-p7-rnO" firstAttribute="height" secondItem="XzK-ae-g2g" secondAttribute="height" multiplier="0.4" id="0ph-HS-Ggv"/>
+                            <constraint firstItem="2nf-6T-9QI" firstAttribute="trailing" secondItem="vZg-p7-rnO" secondAttribute="trailing" constant="16" id="AIn-6z-TnT"/>
+                            <constraint firstItem="vZg-p7-rnO" firstAttribute="top" secondItem="2nf-6T-9QI" secondAttribute="top" constant="20" id="SDK-6O-ZTV"/>
+                            <constraint firstItem="vZg-p7-rnO" firstAttribute="leading" secondItem="2nf-6T-9QI" secondAttribute="leading" constant="16" id="TAq-Bm-FJr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Gift cards" id="uTk-oK-fu6"/>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntG-uA-tFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8" y="750"/>
+            <point key="canvasLocation" x="1375.3623188405797" y="750"/>
         </scene>
         <!--Gift-->
         <scene sceneID="dYa-xe-YrL">
@@ -64,7 +64,7 @@
                     <tabBarItem key="tabBarItem" title="Gift" image="Gift" id="GTf-CI-scy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="YAy-v4-LnP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

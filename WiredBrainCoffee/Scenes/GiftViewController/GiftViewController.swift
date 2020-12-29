@@ -18,11 +18,12 @@ class GiftViewController: UIViewController {
         super.viewDidLoad()
         
         seasonalCollectionView.dataSource = self
+        seasonalCollectionView.delegate = self
     }
 
 }
 
-extension GiftViewController: UICollectionViewDataSource {
+extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colorData.count
     }
@@ -35,4 +36,15 @@ extension GiftViewController: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let rows: CGFloat = 2
+        let collectionViewHeight = collectionView.bounds.height
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let spaceBetweenCells = flowLayout.minimumInteritemSpacing * rows
+        
+        let width: CGFloat = 100
+        let height: CGFloat = (collectionViewHeight - spaceBetweenCells)  / rows
+        
+        return CGSize(width: width , height: height)
+    }
 }
