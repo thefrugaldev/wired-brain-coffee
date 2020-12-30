@@ -51,12 +51,21 @@ extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                   withReuseIdentifier: "sectionHeader",
-                                                                   for: indexPath) as! HeaderCollectionReusableView
-        
-        view.setup(count: colorData.count)
-        
-        return view
+        if (kind == UICollectionView.elementKindSectionHeader) {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                       withReuseIdentifier: "sectionHeader",
+                                                                       for: indexPath) as! HeaderCollectionReusableView
+            
+            view.setup(count: colorData.count)
+            
+            return view
+        } else {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                       withReuseIdentifier: "sectionFooter",
+                                                                       for: indexPath)
+            
+            view.backgroundColor = UIColor.purple
+            return view
+        }
     }
 }
