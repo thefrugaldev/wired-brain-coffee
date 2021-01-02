@@ -62,14 +62,64 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THANK YOU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-T4-Kf1">
+                                <rect key="frame" x="16" y="447" width="382" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f9z-16-kLh">
+                                <rect key="frame" x="16" y="484" width="382" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="4rp-hI-jSs"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="10" id="6hi-fW-DmI">
+                                    <size key="itemSize" width="161" height="167"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiftCardCell" id="WJ6-qD-KYz" customClass="GiftCardCollectionViewCell" customModule="WiredBrainCoffee" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="-33.5" width="161" height="167"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yCw-zR-n6x">
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="167"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8M-U2-KAs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="161" height="167"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="F8M-U2-KAs" firstAttribute="leading" secondItem="yCw-zR-n6x" secondAttribute="leading" id="SLM-Hz-mLr"/>
+                                                <constraint firstItem="F8M-U2-KAs" firstAttribute="top" secondItem="yCw-zR-n6x" secondAttribute="top" id="b2u-9T-6ae"/>
+                                                <constraint firstAttribute="bottom" secondItem="F8M-U2-KAs" secondAttribute="bottom" id="e7e-CI-fCC"/>
+                                                <constraint firstAttribute="trailing" secondItem="F8M-U2-KAs" secondAttribute="trailing" id="iX3-Mj-Ggt"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="giftCardImageView" destination="F8M-U2-KAs" id="59l-CP-BJE"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2nf-6T-9QI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="f9z-16-kLh" firstAttribute="leading" secondItem="2nf-6T-9QI" secondAttribute="leading" constant="16" id="33s-em-wcE"/>
+                            <constraint firstItem="2nf-6T-9QI" firstAttribute="trailing" secondItem="2hs-T4-Kf1" secondAttribute="trailing" constant="16" id="5dj-fs-O1a"/>
+                            <constraint firstItem="f9z-16-kLh" firstAttribute="top" secondItem="2hs-T4-Kf1" secondAttribute="bottom" constant="20" id="5vw-Oj-Jbb"/>
                             <constraint firstItem="vZg-p7-rnO" firstAttribute="top" secondItem="d01-yT-Jfi" secondAttribute="bottom" constant="15" id="7zY-y8-v8J"/>
                             <constraint firstItem="2nf-6T-9QI" firstAttribute="trailing" secondItem="vZg-p7-rnO" secondAttribute="trailing" constant="16" id="AIn-6z-TnT"/>
                             <constraint firstItem="vZg-p7-rnO" firstAttribute="leading" secondItem="2nf-6T-9QI" secondAttribute="leading" constant="16" id="TAq-Bm-FJr"/>
                             <constraint firstItem="2nf-6T-9QI" firstAttribute="trailing" secondItem="d01-yT-Jfi" secondAttribute="trailing" constant="16" id="fFK-1J-dwe"/>
+                            <constraint firstItem="2hs-T4-Kf1" firstAttribute="leading" secondItem="2nf-6T-9QI" secondAttribute="leading" constant="16" id="hGO-FA-QFZ"/>
+                            <constraint firstItem="2hs-T4-Kf1" firstAttribute="top" secondItem="vZg-p7-rnO" secondAttribute="bottom" constant="20" id="j6c-k6-PJU"/>
+                            <constraint firstItem="2nf-6T-9QI" firstAttribute="trailing" secondItem="f9z-16-kLh" secondAttribute="trailing" constant="16" id="s9g-3a-qLs"/>
                             <constraint firstItem="d01-yT-Jfi" firstAttribute="top" secondItem="2nf-6T-9QI" secondAttribute="top" constant="20" id="wG6-dI-SwF"/>
                             <constraint firstItem="d01-yT-Jfi" firstAttribute="leading" secondItem="2nf-6T-9QI" secondAttribute="leading" constant="16" id="zhO-lL-EM0"/>
                         </constraints>
@@ -78,6 +128,8 @@
                     <connections>
                         <outlet property="seasonalCollectionView" destination="vZg-p7-rnO" id="xkI-Bx-IAj"/>
                         <outlet property="seasonalHeightConstraint" destination="kOo-cv-sP7" id="1mD-gI-AtD"/>
+                        <outlet property="thankYouCollectionView" destination="f9z-16-kLh" id="zBD-Jd-Grh"/>
+                        <outlet property="thankYouHeightConstraint" destination="4rp-hI-jSs" id="xYh-y7-KnR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntG-uA-tFR" userLabel="First Responder" sceneMemberID="firstResponder"/>

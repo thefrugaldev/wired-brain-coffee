@@ -12,6 +12,8 @@ class GiftViewController: UIViewController {
     
     @IBOutlet weak var seasonalHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var seasonalCollectionView: UICollectionView!
+    @IBOutlet weak var thankYouCollectionView: UICollectionView!
+    @IBOutlet weak var thankYouHeightConstraint: NSLayoutConstraint!
     
     var seasonalGiftCards = [GiftCardModel]() /* {
         /* Property observers are another option to reload data */
@@ -20,6 +22,7 @@ class GiftViewController: UIViewController {
             seasonalCollectionView.reloadData()
         }
     } */
+    var thankYouDataSource: SmallGiftCardCollectionViewDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,20 +36,33 @@ class GiftViewController: UIViewController {
             self.seasonalGiftCards = cards
             self.seasonalCollectionView.reloadData()
         }
+        
+        GiftCardFunctions.getThankYouGiftCards { [weak self] (cards) in
+            guard let self = self else {return}
+            
+            self.thankYouDataSource = SmallGiftCardCollectionViewDataSource(giftCards: cards)
+            
+            self.thankYouCollectionView.dataSource = self.thankYouDataSource
+            self.thankYouCollectionView.delegate = self.thankYouDataSource
+            
+            self.thankYouCollectionView.reloadData()
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        setHeightOfCollectionView()
+        setHeightOfCollectionViews()
     }
     
-    func setHeightOfCollectionView() {
+    func setHeightOfCollectionViews() {
         /* Calculating aspect raio for overall collection view */
         let width = seasonalCollectionView.bounds.width
         let height = width / 1.5
         
         seasonalHeightConstraint.constant = height
+        
+        thankYouHeightConstraint.constant = height / 2
     }
 }
 
@@ -66,7 +82,7 @@ extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         /* Calculating aspect ratio for individual cells */
-        let width: CGFloat = seasonalCollectionView.bounds.width - 50 // includes section insets and small enough to show next card
+        let width: CGFloat = collectionView.bounds.width - 50 // includes section insets and small enough to show next card
         let height: CGFloat = width / 1.5
         
         return CGSize(width: width , height: height)
