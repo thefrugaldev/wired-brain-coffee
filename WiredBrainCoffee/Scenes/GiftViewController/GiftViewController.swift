@@ -10,6 +10,7 @@ import UIKit
 
 class GiftViewController: UIViewController {
     
+    @IBOutlet weak var seasonalHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var seasonalCollectionView: UICollectionView!
     
     var seasonalGiftCards = [GiftCardModel]() /* {
@@ -33,7 +34,20 @@ class GiftViewController: UIViewController {
             self.seasonalCollectionView.reloadData()
         }
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        setHeightOfCollectionView()
+    }
+    
+    func setHeightOfCollectionView() {
+        /* Calculating aspect raio for overall collection view */
+        let width = seasonalCollectionView.bounds.width
+        let height = width / 1.5
+        
+        seasonalHeightConstraint.constant = height
+    }
 }
 
 extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -51,24 +65,10 @@ extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let columns: CGFloat = 2
-        let collectionViewWidth = collectionView.bounds.width
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let spaceBetweenCells = flowLayout.minimumInteritemSpacing * columns
-        
-        let width: CGFloat = (collectionViewWidth - spaceBetweenCells)  / columns
-        let height: CGFloat = width/1.5
+        /* Calculating aspect ratio for individual cells */
+        let width: CGFloat = seasonalCollectionView.bounds.width - 50 // includes section insets and small enough to show next card
+        let height: CGFloat = width / 1.5
         
         return CGSize(width: width , height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let view = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "sectionHeader",
-            for: indexPath)
-            return view
     }
 }
